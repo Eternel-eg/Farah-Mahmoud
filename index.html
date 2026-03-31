@@ -8,33 +8,31 @@
 <style>
   /* =====================================================================
      🌟 EASY EDIT: TEXT COLORS, SIZES, AND POSITIONS 🌟
-     All card text settings are grouped here so you can easily change them.
      ===================================================================== */
 
-  /* 1. INTRO & OUTRO TEXT ("Together with their families", "invite you...") */
+  /* 1. INTRO & OUTRO TEXT */
   .sub-text {
-    color: #e5c175;            /* <-- TEXT COLOR (Light Gold) */
-    font-size: clamp(0.96rem, 2.8vw, 1.12rem); /* <-- TEXT SIZE (-20%) */
-    margin-top: 20px;           /* <-- POSITION: Space ABOVE this text */
-    margin-bottom: 4px;        /* <-- POSITION: Space BELOW this text */
-    
+    color: #e5c175;
+    font-size: clamp(0.96rem, 2.8vw, 1.12rem);
+    /* Changed fixed pixels to percentages for flawless responsive scaling */
+    margin-top: 2%; 
+    margin-bottom: 1%;
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
     line-height: 1.5;
     letter-spacing: 0.05em;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.6); /* Shadow keeps text readable */
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
   }
 
-  /* 2. MAIN NAMES (Farah & Mahmoud) */
+  /* 2. MAIN NAMES */
   .main-names {
-    color: #e5c175;            /* <-- TEXT COLOR */
-    font-size: clamp(1.92rem, 5.6vw, 2.8rem); /* <-- TEXT SIZE (-20%) */
-    margin-top: 12px;          /* <-- POSITION: Space ABOVE the names */
-    margin-bottom: 12px;       /* <-- POSITION: Space BELOW the names */
-    gap: 8px;                  /* <-- POSITION: Space BETWEEN Farah, &, Mahmoud */
-    
+    color: #e5c175;
+    font-size: clamp(1.92rem, 5.6vw, 2.8rem);
+    margin-top: 2%;
+    margin-bottom: 2%;
+    gap: 1.5vh; /* Dynamic gap based on screen height */
     display: flex;
-    flex-direction: column;    /* <-- THIS puts the names on separate lines */
+    flex-direction: column;
     align-items: center;
     font-family: 'Playfair Display', serif;
     text-transform: uppercase;
@@ -46,9 +44,8 @@
 
   /* 3. THE AMPERSAND (&) */
   .amp {
-    color: #e5c175;            /* <-- TEXT COLOR */
-    font-size: 1.44em;         /* <-- TEXT SIZE (-20%) */
-    
+    color: #e5c175;
+    font-size: 1.44em;
     font-family: 'Pinyon Script', cursive;
     text-transform: none;
     line-height: 1;
@@ -56,13 +53,12 @@
     text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
   }
 
-  /* 4. DATE TEXT ("Saturday, the Fourteenth of June") */
+  /* 4. DATE TEXT */
   .date-header {
-    color: #e5c175;            /* <-- TEXT COLOR */
-    font-size: clamp(0.92rem, 2.8vw, 1.16rem); /* <-- TEXT SIZE (-20%) */
-    margin-top: 4px;           /* <-- POSITION: Space ABOVE */
-    margin-bottom: 0px;        /* <-- POSITION: Space BELOW */
-    
+    color: #e5c175;
+    font-size: clamp(0.92rem, 2.8vw, 1.16rem);
+    margin-top: 1%;
+    margin-bottom: 0;
     font-family: 'Cormorant Garamond', serif;
     text-transform: uppercase;
     letter-spacing: 0.25em;
@@ -70,26 +66,24 @@
     text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
   }
 
-  /* 5. YEAR ("2025") */
+  /* 5. YEAR */
   .date-year {
-    color: #e5c175;            /* <-- TEXT COLOR */
-    font-size: clamp(1.44rem, 4vw, 1.92rem); /* <-- TEXT SIZE (-20%) */
-    margin-top: 8px;          /* <-- POSITION: Space ABOVE */
-    margin-bottom: 14px;       /* <-- POSITION: Space BELOW */
-    
+    color: #e5c175;
+    font-size: clamp(1.44rem, 4vw, 1.92rem);
+    margin-top: 2%;
+    margin-bottom: 3%;
     font-family: 'Playfair Display', serif;
     font-weight: 400;
     letter-spacing: 0.15em;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
   }
 
-  /* 6. TIME ("at Six O'Clock in the Evening") */
+  /* 6. TIME */
   .date-time {
-    color: #e5c175;            /* <-- TEXT COLOR */
-    font-size: clamp(0.96rem, 2.8vw, 1.12rem); /* <-- TEXT SIZE (-20%) */
-    margin-top: 0px;           /* <-- POSITION: Space ABOVE */
-    margin-bottom: 8px;        /* <-- POSITION: Space BELOW */
-    
+    color: #e5c175;
+    font-size: clamp(0.96rem, 2.8vw, 1.12rem);
+    margin-top: 0;
+    margin-bottom: 2%;
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-weight: 300;
@@ -97,13 +91,12 @@
     text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
   }
 
-  /* 7. DRESS CODE ("Dress Code: Black Tie") */
+  /* 7. DRESS CODE */
   .dress-code {
-    color: #000000;            /* <-- TEXT COLOR */
-    font-size: clamp(0.72rem, 2vw, 0.88rem); /* <-- TEXT SIZE (-20%) */
-    margin-top: 16px;          /* <-- POSITION: Space ABOVE */
-    margin-bottom: 0px;        /* <-- POSITION: Space BELOW */
-    
+    color: #000000;
+    font-size: clamp(0.72rem, 2vw, 0.88rem);
+    margin-top: 3%;
+    margin-bottom: 0;
     font-family: 'Cormorant Garamond', serif;
     text-transform: uppercase;
     letter-spacing: 0.25em;
@@ -112,9 +105,8 @@
   }
 
   /* =====================================================================
-     END OF EASY EDIT SECTION 
+     CORE LAYOUT & ANIMATIONS
      ===================================================================== */
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   html, body {
@@ -130,7 +122,6 @@
     font-family: 'Cormorant Garamond', serif;
   }
 
-  /* ═══ SCENE ═══ */
   .scene {
     perspective: 1400px;
     cursor: pointer;
@@ -140,34 +131,21 @@
     transform-origin: top center;
   }
 
-  /* ═══ ENVELOPE LAYERS ═══ */
-  .env-body {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-  }
+  .env-body { position: absolute; inset: 0; z-index: 3; }
   .env-body img { width:100%; height:100%; object-fit:contain; display:block; }
 
   .env-flap {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 55%;
-    z-index: 5;
-    transform-origin: top center;
-    transform-style: preserve-3d;
+    position: absolute; top: 0; left: 0; width: 100%; height: 55%;
+    z-index: 5; transform-origin: top center; transform-style: preserve-3d;
     transition: transform 2.2s cubic-bezier(0.25, 0.1, 0.25, 1);
   }
   .env-flap img {
-    width: 100%;
-    height: 800px;
-    object-fit: contain;
-    object-position: top center;
-    display: block;
-    backface-visibility: hidden;
+    width: 100%; height: 800px; object-fit: contain;
+    object-position: top center; display: block; backface-visibility: hidden;
   }
   .scene.opened .env-flap { transform: rotateX(178deg); }
 
-  /* ═══ CARD — behind envelope ═══ */
+  /* ═══ CARD: INITIAL STATE (Inside Envelope) ═══ */
   .card {
     position: absolute;
     left: 50%;
@@ -175,7 +153,7 @@
     transform: translateX(-50%);
     width: 74%;
     height: 44%;
-    background:  url('https://drive.google.com/thumbnail?id=1WhQ5dpqn5Ylkxv6NE2gjpdmqbF54ckUC&sz=w2000') center/cover no-repeat;
+    background: url('https://drive.google.com/thumbnail?id=1WhQ5dpqn5Ylkxv6NE2gjpdmqbF54ckUC&sz=w2000') center/cover no-repeat;
     border: 1px solid rgba(180,148,90,0.35);
     border-radius: 2px;
     z-index: 1;
@@ -183,8 +161,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 32px 36px;
     opacity: 0;
     pointer-events: none;
     box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
@@ -192,44 +168,63 @@
     overflow: hidden;
   }
 
-  /* ═══ FULL-SCREEN CARD CONTENT ═══ */
+  /* ═══ CARD: FULL-SCREEN BACKGROUND RESPONSIVENESS ═══ */
+  /* This prevents the background image from zooming in or cropping. */
+  .card.full {
+    background-size: contain !important; 
+    background-position: center center !important;
+    background-color: #d8ccba !important; /* Blends nicely if letterboxing occurs */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ═══ CARD INNER: PERFECT ASPECT RATIO LOCK & SAFE ZONE ═══ */
   .card-inner {
     opacity: 0;
     pointer-events: none;
+    
+    /* 1. Locks the container to the exact proportions of the image (565x800) */
+    aspect-ratio: 565 / 800;
+    width: 100%;
+    
+    /* 2. Ensures it never exceeds the screen boundaries, replicating 'contain' behavior */
+    max-width: calc(100dvh * (565 / 800));
+    max-height: 100dvh;
+    margin: auto; 
+    
+    /* 3. SAFE ZONE POSITIONING (Critical) */
+    /* Padding is calculated as a % of the container width. Because the aspect ratio 
+       is locked, these percentages create an identical vertical safe zone 
+       on EVERY device size. 
+       - 34% top padding clears the wax stamp area safely.
+       - 15% bottom padding clears the bottom decorative line. */
+    padding: 34% 8% 15% 8%; 
+    
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    max-width: 560px;
-    margin: 0 auto;
+    
+    /* 4. DYNAMIC TEXT FLOW */
+    /* Space-evenly distributes the remaining safe space flexibly between all elements */
+    justify-content: space-evenly; 
     text-align: center;
-    overflow-y: auto;
-    max-height: 100%;
-    padding: 20vh 16px 40px 16px; /* <-- ADDED: 20vh padding top correctly pushes all text down 20% */
-    scrollbar-width: thin;
-    scrollbar-color: rgba(184,146,90,0.3) transparent;
     position: relative;
     z-index: 10;
   }
-  .card-inner::-webkit-scrollbar { width: 4px; }
-  .card-inner::-webkit-scrollbar-track { background: transparent; }
-  .card-inner::-webkit-scrollbar-thumb { background: rgba(184,146,90,0.3); border-radius: 2px; }
 
   .card.full .card-inner {
     pointer-events: all;
     opacity: 1;
-    justify-content: flex-start; /* <-- CHANGED: allows the top padding to safely push the text downwards */
   }
 
-  /* Elegant Animation for new elements */
+  /* Elegant Animation for elements */
   .card-inner > * {
     opacity: 0;
     transform: translateY(22px);
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
   
-  /* Staggered elegant reveal */
   .card.full .card-inner > *:nth-child(1)  { animation: elegantReveal 1s cubic-bezier(0.34,1.1,0.64,1) 0.3s forwards; }
   .card.full .card-inner > *:nth-child(2)  { animation: elegantReveal 1s cubic-bezier(0.34,1.1,0.64,1) 0.5s forwards; }
   .card.full .card-inner > *:nth-child(3)  { animation: elegantReveal 1s cubic-bezier(0.34,1.1,0.64,1) 0.7s forwards; }
@@ -246,28 +241,26 @@
     to   { opacity: 1; transform: translateY(0); filter: blur(0); }
   }
 
-  /* Decorative Rule for Negative Space */
+  /* Decorative Rule */
   .rule { 
-    width: 140px; 
+    width: 25%; /* Responsive width */
+    max-width: 140px; 
     height: 1px; 
     background: linear-gradient(to right, transparent, #e5c175, transparent); 
-    margin: 28px auto; 
     flex-shrink: 0; 
   }
   
-  .sub-text.italic {
-    font-style: italic;
-  }
+  .sub-text.italic { font-style: italic; }
 
   /* ─── CTA Buttons ─── */
   .btn-row {
     display: flex;
     gap: 16px;
-    margin-top: 42px;
+    margin-top: 3%;
     justify-content: center;
     flex-wrap: wrap;
     position: relative;
-    z-index: 20; /* Ensure buttons are highly clickable above the image */
+    z-index: 20;
   }
   .btn {
     font-family: 'Cormorant Garamond', serif;
@@ -299,7 +292,7 @@
   }
   .btn svg { width:16px; height:16px; flex-shrink:0; }
 
-  /* close */
+  /* close btn - Adjusted positioning */
   .close-btn {
     position: absolute;
     top: 24px; right: 28px;
@@ -348,7 +341,6 @@
     to   { background-position: 200% 0; opacity: 0; }
   }
 
-  /* entrance + bob */
   .scene { animation: sceneRise 1.1s cubic-bezier(0.34,1.1,0.64,1) both; }
   @keyframes sceneRise {
     from { transform: translateY(50px) scale(0.96); opacity:0; }
@@ -363,7 +355,6 @@
     50%      { transform: translateY(-8px); }
   }
 
-  /* ── UPDATED HINT (Larger and more visible) ── */
   .hint {
     margin-top: 32px;
     font-family: 'Cormorant Garamond', serif;
@@ -380,15 +371,9 @@
   }
   .hint.hidden { opacity:0; pointer-events:none; }
 
-  /* petals */
   .petal {
-    position: fixed;
-    width: 8px; height: 13px;
-    border-radius: 50% 50% 50% 0;
-    opacity: 0;
-    pointer-events: none;
-    animation: fall linear forwards;
-    z-index: 100;
+    position: fixed; width: 8px; height: 13px; border-radius: 50% 50% 50% 0;
+    opacity: 0; pointer-events: none; animation: fall linear forwards; z-index: 100;
   }
   @keyframes fall {
     from { opacity:.75; transform: translateY(-20px) rotate(0deg); }
@@ -397,44 +382,25 @@
 
   /* ═══ MODALS ═══ */
   .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(40,28,16,0.65);
-    backdrop-filter: blur(8px);
-    z-index: 200;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s ease;
-    padding: 16px;
+    position: fixed; inset: 0; background: rgba(40,28,16,0.65);
+    backdrop-filter: blur(8px); z-index: 200; display: flex;
+    align-items: center; justify-content: center; opacity: 0;
+    pointer-events: none; transition: opacity 0.35s ease; padding: 16px;
   }
   .modal-overlay.show { opacity: 1; pointer-events: all; }
-
   .modal-box {
-    background: #f8f3eb;
-    border: 1px solid rgba(180,148,90,0.4);
-    border-radius: 2px;
-    padding: 44px 36px 36px;
-    max-width: 440px;
-    width: 100%;
-    text-align: center;
-    position: relative;
+    background: #f8f3eb; border: 1px solid rgba(180,148,90,0.4);
+    border-radius: 2px; padding: 44px 36px 36px; max-width: 440px;
+    width: 100%; text-align: center; position: relative;
     box-shadow: 0 20px 60px rgba(0,0,0,0.25);
     transform: translateY(24px) scale(0.97);
     transition: transform 0.35s cubic-bezier(0.34,1.1,0.64,1);
-    max-height: 90dvh;
-    overflow-y: auto;
+    max-height: 90dvh; overflow-y: auto;
   }
   .modal-overlay.show .modal-box { transform: translateY(0) scale(1); }
   .modal-box::before {
-    content: '';
-    position: absolute;
-    inset: 9px;
-    border: 1px solid rgba(180,148,90,0.18);
-    border-radius: 1px;
-    pointer-events: none;
+    content: ''; position: absolute; inset: 9px;
+    border: 1px solid rgba(180,148,90,0.18); border-radius: 1px; pointer-events: none;
   }
   .modal-title { font-family:'Playfair Display',serif; font-size: clamp(2rem,8vw,2.6rem); color:#e5c175; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.05em; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
   .modal-sub   { font-family:'Cormorant Garamond',serif; font-size: clamp(0.9rem,2.5vw,1.1rem); letter-spacing:.15em; color:#cca550; text-transform:uppercase; margin-bottom:18px; font-weight:500; }
@@ -442,20 +408,17 @@
 
   .rsvp-form { display:flex; flex-direction:column; gap:12px; text-align:left; }
   .rsvp-form input, .rsvp-form select {
-    width:100%; padding:14px;
-    border:1px solid rgba(180,148,90,0.4); border-radius:1px;
-    background:rgba(255,255,255,0.6);
-    font-family:'Cormorant Garamond',serif; font-size:1.1rem;
-    color:#3a2810; outline:none; letter-spacing:0.03em;
-    -webkit-appearance: none;
+    width:100%; padding:14px; border:1px solid rgba(180,148,90,0.4); border-radius:1px;
+    background:rgba(255,255,255,0.6); font-family:'Cormorant Garamond',serif; font-size:1.1rem;
+    color:#3a2810; outline:none; letter-spacing:0.03em; -webkit-appearance: none;
   }
   .rsvp-form input:focus, .rsvp-form select:focus { border-color:#cca550; background:rgba(255,255,255,0.9); }
   .rsvp-form input::placeholder { color:#9a8060; font-style:italic; }
   .rsvp-submit {
-    font-family:'Cormorant Garamond',serif; font-size: clamp(0.9rem,2.5vw,1.1rem); font-weight:500; letter-spacing:.15em;
-    text-transform:uppercase; color:#fff; background:#cca550;
-    border:none; padding:14px 28px; border-radius:1px; cursor:pointer;
-    margin-top:4px; transition:background 0.2s; width:100%;
+    font-family:'Cormorant Garamond',serif; font-size: clamp(0.9rem,2.5vw,1.1rem); font-weight:500;
+    letter-spacing:.15em; text-transform:uppercase; color:#fff; background:#cca550;
+    border:none; padding:14px 28px; border-radius:1px; cursor:pointer; margin-top:4px;
+    transition:background 0.2s; width:100%;
   }
   .rsvp-submit:hover, .rsvp-submit:active { background:#b38f40; }
 
@@ -471,10 +434,9 @@
   .loc-btn:hover, .loc-btn:active { background:#b38f40; }
 
   .modal-close {
-    position:absolute; top:14px; right:16px;
-    font-family:'Cormorant Garamond',serif; font-size: clamp(0.8rem,2vw,0.9rem); font-weight:500;
-    letter-spacing:.15em; color:#cca550; cursor:pointer;
-    border:1px solid rgba(204,165,80,0.3); padding:6px 12px;
+    position:absolute; top:14px; right:16px; font-family:'Cormorant Garamond',serif;
+    font-size: clamp(0.8rem,2vw,0.9rem); font-weight:500; letter-spacing:.15em; color:#cca550;
+    cursor:pointer; border:1px solid rgba(204,165,80,0.3); padding:6px 12px;
     border-radius:1px; text-transform:uppercase;
   }
   .modal-close:hover { background:rgba(204,165,80,0.1); }
@@ -497,69 +459,59 @@
 
   /* ═══ LOADING SCREEN ═══ */
   #loadingScreen {
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 40%, #ede5d8 0%, #d8ccba 60%, #c9bc9f 100%);
-    z-index: 99999;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 28px;
-    transition: opacity 0.8s ease;
+    position: fixed; inset: 0; background: radial-gradient(ellipse at 50% 40%, #ede5d8 0%, #d8ccba 60%, #c9bc9f 100%);
+    z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; transition: opacity 0.8s ease;
   }
-  #loadingScreen.fade-out {
-    opacity: 0;
-    pointer-events: none;
-  }
-  .loading-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 8vw, 4rem);
-    text-transform: uppercase;
-    color: #cca550;
-    line-height: 1;
-    letter-spacing: 0.05em;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-  }
-  .loading-sub {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-    letter-spacing: .25em;
-    font-weight: 500;
-    color: #a68440;
-    text-transform: uppercase;
-  }
-  .loading-bar-wrap {
-    width: 160px;
-    height: 1px;
-    background: rgba(180,148,90,0.2);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .loading-bar {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(to right, #cca550, #f0deba, #cca550);
-    border-radius: 2px;
-    transition: width 0.3s ease;
-  }
-  .loading-dots {
-    display: flex;
-    gap: 8px;
-  }
-  .loading-dots span {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: rgba(204,165,80,0.5);
-    animation: dotPulse 1.4s ease-in-out infinite;
-  }
+  #loadingScreen.fade-out { opacity: 0; pointer-events: none; }
+  .loading-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 8vw, 4rem); text-transform: uppercase; color: #cca550; line-height: 1; letter-spacing: 0.05em; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+  .loading-sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(0.9rem, 2.5vw, 1.1rem); letter-spacing: .25em; font-weight: 500; color: #a68440; text-transform: uppercase; }
+  .loading-bar-wrap { width: 160px; height: 1px; background: rgba(180,148,90,0.2); border-radius: 2px; overflow: hidden; }
+  .loading-bar { height: 100%; width: 0%; background: linear-gradient(to right, #cca550, #f0deba, #cca550); border-radius: 2px; transition: width 0.3s ease; }
+  .loading-dots { display: flex; gap: 8px; }
+  .loading-dots span { width: 5px; height: 5px; border-radius: 50%; background: rgba(204,165,80,0.5); animation: dotPulse 1.4s ease-in-out infinite; }
   .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
   .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes dotPulse {
-    0%, 100% { transform: scale(1); opacity: 0.4; }
-    50% { transform: scale(1.4); opacity: 1; background: #cca550; }
+  @keyframes dotPulse { 0%, 100% { transform: scale(1); opacity: 0.4; } 50% { transform: scale(1.4); opacity: 1; background: #cca550; } }
+
+  /* ═══ MUSIC PLAYER ═══ */
+  #musicPlayer {
+    position: fixed; bottom: 28px; right: 28px; z-index: 9999; display: flex; align-items: center; gap: 0;
+    height: 48px; border-radius: 100px; overflow: hidden; transition: width 0.5s cubic-bezier(0.34, 1.1, 0.64, 1);
   }
+  #musicBtn {
+    position: relative; width: 48px; height: 48px; min-width: 48px; border-radius: 50%; border: 1px solid rgba(180,148,90,0.55);
+    background: rgba(30, 20, 10, 0.72); backdrop-filter: blur(14px); cursor: pointer; display: flex; align-items: center;
+    justify-content: center; box-shadow: 0 4px 24px rgba(0,0,0,0.22), 0 0 0 1px rgba(184,146,90,0.18) inset;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s; outline: none; z-index: 2; flex-shrink: 0;
+  }
+  #musicBtn:hover { background: rgba(50, 35, 15, 0.85); box-shadow: 0 6px 28px rgba(184,146,90,0.35), 0 0 0 1px rgba(184,146,90,0.3) inset; transform: scale(1.07); }
+  #musicBtn:active { transform: scale(0.96); }
+  #musicBtn::before {
+    content: ''; position: absolute; inset: -3px; border-radius: 50%; border: 1.5px solid transparent;
+    border-top-color: #cca550; border-right-color: rgba(204,165,80,0.3); opacity: 0; transition: opacity 0.4s;
+    animation: spinRing 2.2s linear infinite; animation-play-state: paused;
+  }
+  #musicBtn.playing::before { opacity: 1; animation-play-state: running; }
+  @keyframes spinRing { to { transform: rotate(360deg); } }
+  #musicBtn.playing { box-shadow: 0 4px 24px rgba(204,165,80,0.4), 0 0 0 1px rgba(204,165,80,0.25) inset; }
+  #musicBtn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  #musicLabel {
+    height: 48px; padding: 0 18px 0 10px; background: rgba(20, 12, 4, 0.72); backdrop-filter: blur(14px);
+    border: 1px solid rgba(180,148,90,0.4); border-left: none; border-radius: 0 100px 100px 0; display: flex;
+    align-items: center; gap: 8px; overflow: hidden; max-width: 0; opacity: 0; transition: max-width 0.5s cubic-bezier(0.34, 1.1, 0.64, 1), opacity 0.4s ease;
+    white-space: nowrap; pointer-events: none;
+  }
+  #musicPlayer.expanded #musicLabel { max-width: 200px; opacity: 1; }
+
+  .wave-bars { display: flex; align-items: center; gap: 2px; height: 16px; }
+  .wave-bars span { display: block; width: 2.5px; border-radius: 2px; background: #cca550; height: 4px; transition: height 0.2s; }
+  #musicPlayer.playing .wave-bars span:nth-child(1) { animation: wave 0.9s ease-in-out infinite; }
+  #musicPlayer.playing .wave-bars span:nth-child(2) { animation: wave 0.9s ease-in-out 0.15s infinite; }
+  #musicPlayer.playing .wave-bars span:nth-child(3) { animation: wave 0.9s ease-in-out 0.3s infinite; }
+  #musicPlayer.playing .wave-bars span:nth-child(4) { animation: wave 0.9s ease-in-out 0.1s infinite; }
+  @keyframes wave { 0%, 100% { height: 3px; } 50% { height: 14px; } }
+  #musicTrackName { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.8rem; color: rgba(229, 193, 117, 0.9); letter-spacing: 0.04em; }
 
 </style>
 </head>
@@ -573,39 +525,31 @@
     
     <div class="close-btn" id="closeBtn">✕ &nbsp; Close</div>
 
+    <!-- The inner wrapper rigorously manages aspect ratio & safe zones -->
     <div class="card-inner">
-      <!-- 1. Intro Text -->
+      
       <div class="sub-text italic">Together with their families</div>
       
-      <!-- 2. Main Names (Now on separate lines via flex-direction column) -->
       <div class="main-names">
         <span>FARAH</span>
         <span class="amp">&</span>
         <span>MAHMOUD</span>
       </div>
       
-      <!-- 3. Invite wording -->
       <div class="sub-text italic">invite you to celebrate their wedding</div>
       
-      <!-- 4. Rule -->
       <div class="rule"></div>
       
-      <!-- 5. Date Header -->
       <div class="date-header">Saturday, the Fourteenth of June</div>
       
-      <!-- 6. Year -->
       <div class="date-year">2025</div>
       
-      <!-- 7. Time -->
       <div class="date-time italic">at Six O'Clock in the Evening</div>
       
-      <!-- 8. Rule -->
       <div class="rule"></div>
       
-      <!-- 9. Dress Code -->
       <div class="dress-code">Dress Code: Black Tie</div>
 
-      <!-- 10. Buttons -->
       <div class="btn-row">
         <button class="btn" onclick="openModal('rsvp', event)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -683,6 +627,37 @@
   </div>
 </div>
 
+<audio id="bgMusic" loop preload="auto">
+  <source src="Mariage_d_Amour.mp3" type="audio/mpeg">
+</audio>
+
+<div id="musicPlayer">
+  <button id="musicBtn" onclick="toggleMusic()" title="Toggle Music" aria-label="Toggle Music">
+    <svg id="iconPlay" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="10" stroke="rgba(204,165,80,0.6)" stroke-width="1"/>
+      <path d="M10 8.5l6 3.5-6 3.5V8.5z" fill="#cca550" stroke="#cca550" stroke-width="0.5" stroke-linejoin="round"/>
+    </svg>
+    <svg id="iconPause" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+      <circle cx="12" cy="12" r="10" stroke="rgba(204,165,80,0.6)" stroke-width="1"/>
+      <rect x="9" y="8" width="2" height="8" rx="1" fill="#cca550"/>
+      <rect x="13" y="8" width="2" height="8" rx="1" fill="#cca550"/>
+    </svg>
+  </button>
+  <div id="musicLabel">
+    <div class="wave-bars">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <div id="musicTrackName">Mariage d'Amour</div>
+  </div>
+</div>
+
+<div id="loadingScreen">
+  <div class="loading-title">FARAH & MAHMOUD</div>
+  <div class="loading-sub">Loading your invitation</div>
+  <div class="loading-bar-wrap"><div class="loading-bar" id="loadingBar"></div></div>
+  <div class="loading-dots"><span></span><span></span><span></span></div>
+</div>
+
 <script>
   let state = 'closed';
 
@@ -724,7 +699,7 @@
     card.style.height    = cardRect.height + 'px';
     card.style.transform = 'none';
     card.style.zIndex    = '50';
-    card.getBoundingClientRect(); // force reflow
+    card.getBoundingClientRect(); 
 
     card.style.transition = [
       'left .9s cubic-bezier(0.4,0,0.2,1)',
@@ -768,8 +743,6 @@
       el.style.opacity = '';
       el.style.transform = '';
     });
-    
-    document.getElementById('card').querySelector('.card-inner').scrollTop = 0;
 
     const scene = document.getElementById('scene');
     const sceneRect = scene.getBoundingClientRect();
@@ -812,7 +785,7 @@
       card.style.zIndex       = '1';
       card.style.padding      = '32px 36px';
       
-      card.getBoundingClientRect(); // Force reflow
+      card.getBoundingClientRect(); 
 
       card.style.transition = 'top 1.0s cubic-bezier(0.34, 1.05, 0.64, 1)';
       card.style.top = '52%';
@@ -869,170 +842,7 @@
       }, i * 60);
     }
   }
-</script>
 
-<audio id="bgMusic" loop preload="auto">
-  <source src="Mariage_d_Amour.mp3" type="audio/mpeg">
-</audio>
-
-<!-- Music Player Button -->
-<style>
-  #musicPlayer {
-    position: fixed;
-    bottom: 28px;
-    right: 28px;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    gap: 0;
-    height: 48px;
-    border-radius: 100px;
-    overflow: hidden;
-    transition: width 0.5s cubic-bezier(0.34, 1.1, 0.64, 1);
-  }
-
-  #musicBtn {
-    position: relative;
-    width: 48px;
-    height: 48px;
-    min-width: 48px;
-    border-radius: 50%;
-    border: 1px solid rgba(180,148,90,0.55);
-    background: rgba(30, 20, 10, 0.72);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.22), 0 0 0 1px rgba(184,146,90,0.18) inset;
-    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
-    outline: none;
-    z-index: 2;
-    flex-shrink: 0;
-  }
-  #musicBtn:hover {
-    background: rgba(50, 35, 15, 0.85);
-    box-shadow: 0 6px 28px rgba(184,146,90,0.35), 0 0 0 1px rgba(184,146,90,0.3) inset;
-    transform: scale(1.07);
-  }
-  #musicBtn:active { transform: scale(0.96); }
-
-  #musicBtn::before {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    border-radius: 50%;
-    border: 1.5px solid transparent;
-    border-top-color: #cca550;
-    border-right-color: rgba(204,165,80,0.3);
-    opacity: 0;
-    transition: opacity 0.4s;
-    animation: spinRing 2.2s linear infinite;
-    animation-play-state: paused;
-  }
-  #musicBtn.playing::before {
-    opacity: 1;
-    animation-play-state: running;
-  }
-  @keyframes spinRing {
-    to { transform: rotate(360deg); }
-  }
-
-  #musicBtn.playing {
-    box-shadow: 0 4px 24px rgba(204,165,80,0.4), 0 0 0 1px rgba(204,165,80,0.25) inset;
-  }
-
-  #musicBtn svg {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-  }
-
-  #musicLabel {
-    height: 48px;
-    padding: 0 18px 0 10px;
-    background: rgba(20, 12, 4, 0.72);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(180,148,90,0.4);
-    border-left: none;
-    border-radius: 0 100px 100px 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    overflow: hidden;
-    max-width: 0;
-    opacity: 0;
-    transition: max-width 0.5s cubic-bezier(0.34, 1.1, 0.64, 1), opacity 0.4s ease;
-    white-space: nowrap;
-    pointer-events: none;
-  }
-  #musicPlayer.expanded #musicLabel {
-    max-width: 200px;
-    opacity: 1;
-  }
-
-  .wave-bars {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    height: 16px;
-  }
-  .wave-bars span {
-    display: block;
-    width: 2.5px;
-    border-radius: 2px;
-    background: #cca550;
-    height: 4px;
-    transition: height 0.2s;
-  }
-  #musicPlayer.playing .wave-bars span:nth-child(1) { animation: wave 0.9s ease-in-out infinite; }
-  #musicPlayer.playing .wave-bars span:nth-child(2) { animation: wave 0.9s ease-in-out 0.15s infinite; }
-  #musicPlayer.playing .wave-bars span:nth-child(3) { animation: wave 0.9s ease-in-out 0.3s infinite; }
-  #musicPlayer.playing .wave-bars span:nth-child(4) { animation: wave 0.9s ease-in-out 0.1s infinite; }
-  @keyframes wave {
-    0%, 100% { height: 3px; }
-    50% { height: 14px; }
-  }
-
-  #musicTrackName {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 0.8rem;
-    color: rgba(229, 193, 117, 0.9);
-    letter-spacing: 0.04em;
-  }
-</style>
-
-<div id="musicPlayer">
-  <button id="musicBtn" onclick="toggleMusic()" title="Toggle Music" aria-label="Toggle Music">
-    <svg id="iconPlay" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="12" r="10" stroke="rgba(204,165,80,0.6)" stroke-width="1"/>
-      <path d="M10 8.5l6 3.5-6 3.5V8.5z" fill="#cca550" stroke="#cca550" stroke-width="0.5" stroke-linejoin="round"/>
-    </svg>
-    <svg id="iconPause" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none;">
-      <circle cx="12" cy="12" r="10" stroke="rgba(204,165,80,0.6)" stroke-width="1"/>
-      <rect x="9" y="8" width="2" height="8" rx="1" fill="#cca550"/>
-      <rect x="13" y="8" width="2" height="8" rx="1" fill="#cca550"/>
-    </svg>
-  </button>
-  <div id="musicLabel">
-    <div class="wave-bars">
-      <span></span><span></span><span></span><span></span>
-    </div>
-    <div id="musicTrackName">Mariage d'Amour</div>
-  </div>
-</div>
-
-<div id="loadingScreen">
-  <div class="loading-title">FARAH & MAHMOUD</div>
-  <div class="loading-sub">Loading your invitation</div>
-  <div class="loading-bar-wrap"><div class="loading-bar" id="loadingBar"></div></div>
-  <div class="loading-dots"><span></span><span></span><span></span></div>
-</div>
-
-<script>
   var musicPlaying = false;
   var music = document.getElementById('bgMusic');
   music.volume = 0.5;
