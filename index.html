@@ -14,7 +14,6 @@
   .sub-text {
     color: #e5c175;
     font-size: clamp(0.96rem, 2.8vw, 1.12rem);
-    /* Changed fixed pixels to percentages for flawless responsive scaling */
     margin-top: 2%; 
     margin-bottom: 1%;
     font-family: 'Cormorant Garamond', serif;
@@ -30,7 +29,7 @@
     font-size: clamp(1.92rem, 5.6vw, 2.8rem);
     margin-top: 2%;
     margin-bottom: 2%;
-    gap: 1.5vh; /* Dynamic gap based on screen height */
+    gap: 1.5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,8 +37,13 @@
     text-transform: uppercase;
     font-weight: 400;
     line-height: 1;
-    letter-spacing: 0.12em;
     text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+    /* Letter spacing moved to spans for animation purposes */
+  }
+
+  .main-names span:not(.amp) {
+    letter-spacing: 0.12em;
+    display: inline-block;
   }
 
   /* 3. THE AMPERSAND (&) */
@@ -51,6 +55,7 @@
     line-height: 1;
     font-weight: 400;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    display: inline-block;
   }
 
   /* 4. DATE TEXT */
@@ -168,45 +173,27 @@
     overflow: hidden;
   }
 
-  /* ═══ CARD: FULL-SCREEN BACKGROUND RESPONSIVENESS ═══ */
-  /* This prevents the background image from zooming in or cropping. */
   .card.full {
     background-size: contain !important; 
     background-position: center center !important;
-    background-color: #d8ccba !important; /* Blends nicely if letterboxing occurs */
+    background-color: #d8ccba !important; 
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  /* ═══ CARD INNER: PERFECT ASPECT RATIO LOCK & SAFE ZONE ═══ */
   .card-inner {
     opacity: 0;
     pointer-events: none;
-    
-    /* 1. Locks the container to the exact proportions of the image (565x800) */
     aspect-ratio: 565 / 800;
     width: 100%;
-    
-    /* 2. Ensures it never exceeds the screen boundaries, replicating 'contain' behavior */
     max-width: calc(100dvh * (565 / 800));
     max-height: 100dvh;
     margin: auto; 
-    
-    /* 3. SAFE ZONE POSITIONING (Critical) */
-    /* Padding is calculated as a % of the container width. Because the aspect ratio 
-       is locked, these percentages create an identical vertical safe zone 
-       on EVERY device size. 
-       - 34% top padding clears the wax stamp area safely.
-       - 15% bottom padding clears the bottom decorative line. */
     padding: 34% 8% 15% 8%; 
-    
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    /* 4. DYNAMIC TEXT FLOW */
-    /* Space-evenly distributes the remaining safe space flexibly between all elements */
     justify-content: space-evenly; 
     text-align: center;
     position: relative;
@@ -218,36 +205,95 @@
     opacity: 1;
   }
 
-  /* Elegant Animation for elements */
-  .card-inner > * {
-    opacity: 0;
-    transform: translateY(22px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
+  /* =====================================================================
+     ✨ HIGH-END ELEGANT ANIMATION SEQUENCE ✨
+     ===================================================================== */
   
-  .card.full .card-inner > *:nth-child(1)  { animation: elegantReveal 1s cubic-bezier(0.34,1.1,0.64,1) 0.3s forwards; }
-  .card.full .card-inner > *:nth-child(2)  { animation: elegantReveal 1s cubic-bezier(0.34,1.1,0.64,1) 0.5s forwards; }
-  .card.full .card-inner > *:nth-child(3)  { animation: elegantReveal 1s cubic-bezier(0.34,1.1,0.64,1) 0.7s forwards; }
-  .card.full .card-inner > *:nth-child(4)  { animation: elegantReveal 1s cubic-bezier(0.34,1.1,0.64,1) 0.9s forwards; }
-  .card.full .card-inner > *:nth-child(5)  { animation: elegantReveal 1s cubic-bezier(0.34,1.1,0.64,1) 1.1s forwards; }
-  .card.full .card-inner > *:nth-child(6)  { animation: elegantReveal 1s cubic-bezier(0.34,1.1,0.64,1) 1.3s forwards; }
-  .card.full .card-inner > *:nth-child(7)  { animation: elegantReveal 1s cubic-bezier(0.34,1.1,0.64,1) 1.5s forwards; }
-  .card.full .card-inner > *:nth-child(8)  { animation: elegantReveal 1s cubic-bezier(0.34,1.1,0.64,1) 1.7s forwards; }
-  .card.full .card-inner > *:nth-child(9)  { animation: elegantReveal 1s cubic-bezier(0.34,1.1,0.64,1) 1.9s forwards; }
-  .card.full .card-inner > *:nth-child(10) { animation: elegantReveal 1s cubic-bezier(0.34,1.1,0.64,1) 2.1s forwards; }
+  /* Reset opacity for children before keyframes take over */
+  .card-inner > * { opacity: 0; }
+  .main-names span { opacity: 0; }
 
-  @keyframes elegantReveal {
-    from { opacity: 0; transform: translateY(20px); filter: blur(4px); }
-    to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+  /* Ensure the names container itself is visible so we can animate spans inside */
+  .card.full .card-inner > *:nth-child(2) { opacity: 1; }
+
+  /* 1. Sub-text */
+  .card.full .card-inner > *:nth-child(1) { animation: luxuryReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; }
+
+  /* 2. Names Sequence */
+  .card.full .main-names span:nth-child(1) { animation: nameReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards, textGlow 4s ease-in-out 2.2s infinite; }
+  .card.full .main-names span.amp          { animation: ampReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards, textGlow 4s ease-in-out 2.6s infinite; }
+  .card.full .main-names span:nth-child(3) { animation: nameReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards, textGlow 4s ease-in-out 3.2s infinite; }
+
+  /* 3. Sub-text */
+  .card.full .card-inner > *:nth-child(3) { animation: luxuryReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 2.6s forwards; }
+  
+  /* 4. Rule (Line) */
+  .card.full .card-inner > *:nth-child(4) { animation: lineExpand 1.2s cubic-bezier(0.16, 1, 0.3, 1) 2.8s forwards; }
+  
+  /* 5. Date Header */
+  .card.full .card-inner > *:nth-child(5) { animation: luxuryReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 3.0s forwards; }
+  
+  /* 6. Date Year */
+  .card.full .card-inner > *:nth-child(6) { animation: yearReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 3.2s forwards; }
+  
+  /* 7. Date Time */
+  .card.full .card-inner > *:nth-child(7) { animation: luxuryReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 3.4s forwards; }
+  
+  /* 8. Rule (Line) */
+  .card.full .card-inner > *:nth-child(8) { animation: lineExpand 1.2s cubic-bezier(0.16, 1, 0.3, 1) 3.6s forwards; }
+  
+  /* 9. Dress Code */
+  .card.full .card-inner > *:nth-child(9) { animation: luxuryReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 3.8s forwards; }
+  
+  /* 10. Buttons */
+  .card.full .card-inner > *:nth-child(10){ animation: luxuryReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 4.0s forwards; }
+
+  /* 11. Close Button */
+  .card.full .close-btn { opacity: 1; pointer-events: all; transition: opacity 0.8s ease 4.6s; }
+
+
+  /* ── Keyframes for Cinematic Motion ── */
+  @keyframes luxuryReveal {
+    0% { opacity: 0; transform: translateY(24px) scale(0.98); filter: blur(6px); }
+    100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
   }
+
+  @keyframes nameReveal {
+    0% { opacity: 0; transform: translateY(30px) scale(0.95); letter-spacing: 0.35em; filter: blur(10px); }
+    50% { text-shadow: 0 0 15px rgba(229,193,117,0.5); }
+    100% { opacity: 1; transform: translateY(0) scale(1); letter-spacing: 0.12em; filter: blur(0); text-shadow: 1px 1px 5px rgba(0,0,0,0.6); }
+  }
+
+  @keyframes ampReveal {
+    0% { opacity: 0; transform: scale(0.6) rotate(-15deg); filter: blur(8px); }
+    70% { transform: scale(1.1) rotate(5deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0); text-shadow: 1px 1px 5px rgba(0,0,0,0.6); }
+  }
+
+  @keyframes textGlow {
+    0%, 100% { text-shadow: 1px 1px 5px rgba(0,0,0,0.6), 0 0 2px rgba(229,193,117,0.0); color: #e5c175; }
+    50% { text-shadow: 1px 1px 5px rgba(0,0,0,0.6), 0 0 15px rgba(229,193,117,0.8), 0 0 25px rgba(229,193,117,0.5); color: #fff8eb; }
+  }
+
+  @keyframes yearReveal {
+    0% { opacity: 0; transform: translateY(15px) scale(1.1); letter-spacing: 0.3em; filter: blur(8px); }
+    100% { opacity: 1; transform: translateY(0) scale(1); letter-spacing: 0.15em; filter: blur(0); }
+  }
+
+  @keyframes lineExpand {
+    0% { transform: scaleX(0); opacity: 0; filter: blur(4px); }
+    100% { transform: scaleX(1); opacity: 1; filter: blur(0); }
+  }
+
 
   /* Decorative Rule */
   .rule { 
-    width: 25%; /* Responsive width */
+    width: 25%; 
     max-width: 140px; 
     height: 1px; 
     background: linear-gradient(to right, transparent, #e5c175, transparent); 
     flex-shrink: 0; 
+    transform-origin: center;
   }
   
   .sub-text.italic { font-style: italic; }
@@ -314,11 +360,6 @@
     backdrop-filter: blur(4px);
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
   }
-  .card.full .close-btn { 
-    opacity: 1; 
-    pointer-events: all; 
-    transition: opacity 0.6s ease 2.5s;
-  }
   .close-btn:hover { background: rgba(229,193,117,0.2); color: #fff; }
 
   /* Shimmer */
@@ -334,7 +375,7 @@
   }
   .card.full .card-shimmer {
     opacity: 1;
-    animation: shimmer 1.5s ease 0.5s forwards;
+    animation: shimmer 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
   }
   @keyframes shimmer {
     from { background-position: -100% 0; }
@@ -348,7 +389,7 @@
   }
   .scene:not(.opened) {
     animation: sceneRise 1.1s cubic-bezier(0.34,1.1,0.64,1) both,
-                bob 5s ease-in-out 1.5s infinite;
+               bob 5s ease-in-out 1.5s infinite;
   }
   @keyframes bob {
     0%,100% { transform: translateY(0); }
@@ -356,9 +397,9 @@
   }
 
   .hint {
-    margin-top: -70px; /* Adjusted from 32px to push the text up */
+    margin-top: -65px; 
     position: relative;
-    z-index: 20; /* Ensures it stays visible above the envelope */
+    z-index: 20; 
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: clamp(1.2rem, 4vw, 1.5rem);
@@ -614,16 +655,16 @@
     <div class="modal-sub">Venue Details</div>
     <div class="modal-rule"></div>
     <div class="loc-address">
-      The Westin Cairo Golf Resort<br>
-      Cairo, Egypt
+      Giza Palace<br>
+      Palace Ballroom
     </div>
     <div class="loc-map">
       <iframe
-        src="https://maps.google.com/maps?q=The+Westin+Cairo+Golf+Resort+%26+Spa,+Cairo,+Egypt&output=embed"
+        src="https://maps.google.com/maps?q=Giza+Palace+Egypt&output=embed"
         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
-    <a class="loc-btn" href="https://maps.app.goo.gl/c344Ek16NHyHEkuf7" target="_blank" rel="noopener">
+    <a class="loc-btn" href="https://maps.app.goo.gl/W3ZZRupdERwSSwjc8" target="_blank" rel="noopener">
       📍 &nbsp; Open in Google Maps
     </a>
   </div>
@@ -740,10 +781,10 @@
     const card = document.getElementById('card');
     card.classList.remove('full');
 
-    card.querySelectorAll('.card-inner > *').forEach(el => {
-      el.style.animation = '';
-      el.style.opacity = '';
-      el.style.transform = '';
+    // Reset animations properly on close
+    card.querySelectorAll('.card-inner > *, .main-names span').forEach(el => {
+      el.style.animation = 'none';
+      el.style.opacity = '0';
     });
 
     const scene = document.getElementById('scene');
@@ -800,6 +841,11 @@
         state = 'closed';
         card.style.opacity = '0';
         document.getElementById('hint').classList.remove('hidden');
+        
+        // Remove 'none' animation to reset for next opening
+        card.querySelectorAll('.card-inner > *, .main-names span').forEach(el => {
+          el.style.animation = '';
+        });
       }, 1100);
 
     }, 820);
@@ -907,14 +953,15 @@
 
   document.addEventListener('click', function autoPlay() {
     if (!musicPlaying) {
-      music.play();
-      var btn = document.getElementById('musicBtn');
-      var player = document.getElementById('musicPlayer');
-      btn.classList.add('playing');
-      player.classList.add('playing', 'expanded');
-      document.getElementById('iconPlay').style.display = 'none';
-      document.getElementById('iconPause').style.display = '';
-      musicPlaying = true;
+      music.play().then(() => {
+          var btn = document.getElementById('musicBtn');
+          var player = document.getElementById('musicPlayer');
+          btn.classList.add('playing');
+          player.classList.add('playing', 'expanded');
+          document.getElementById('iconPlay').style.display = 'none';
+          document.getElementById('iconPause').style.display = '';
+          musicPlaying = true;
+      }).catch(e => console.log("Audio autoplay prevented by browser"));
     }
     document.removeEventListener('click', autoPlay);
   });
