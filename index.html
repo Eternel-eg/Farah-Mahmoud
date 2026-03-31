@@ -356,7 +356,9 @@
   }
 
   .hint {
-    margin-top: 32px;
+    margin-top: -40px; /* Adjusted from 32px to push the text up */
+    position: relative;
+    z-index: 20; /* Ensures it stays visible above the envelope */
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: clamp(1.2rem, 4vw, 1.5rem);
