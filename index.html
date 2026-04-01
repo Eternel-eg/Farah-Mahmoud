@@ -13,9 +13,9 @@
   /* 1. INTRO & OUTRO TEXT */
   .sub-text {
     color: #e5c175;
-    font-size: clamp(1rem, 3.5vw, 1.3rem);
-    margin-top: 2%; 
-    margin-bottom: 1%;
+    font-size: clamp(0.85rem, 3.5vw, 1.3rem);
+    margin-top: 0; 
+    margin-bottom: 2%;
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
     line-height: 1.5;
@@ -26,9 +26,9 @@
   /* 2. MAIN NAMES */
   .main-names {
     color: #e5c175;
-    font-size: clamp(2rem, 8vw, 3.5rem);
-    margin-top: 2%;
-    margin-bottom: 2%;
+    font-size: clamp(1.8rem, 8vw, 3.5rem);
+    margin-top: 0;
+    margin-bottom: 3%;
     gap: 1.5vh;
     display: flex;
     flex-direction: column;
@@ -60,9 +60,9 @@
   /* 4. DATE TEXT */
   .date-header {
     color: #e5c175;
-    font-size: clamp(1.1rem, 4vw, 1.6rem);
-    margin-top: 1%;
-    margin-bottom: 0;
+    font-size: clamp(0.95rem, 4vw, 1.6rem);
+    margin-top: 0;
+    margin-bottom: 1%;
     font-family: 'Cinzel', serif; /* Changed to Cinzel for elegance */
     text-transform: uppercase;
     letter-spacing: 0.25em;
@@ -73,9 +73,9 @@
   /* 5. YEAR */
   .date-year {
     color: #e5c175;
-    font-size: clamp(2rem, 6vw, 3.2rem);
-    margin-top: 2%;
-    margin-bottom: 3%;
+    font-size: clamp(1.6rem, 6vw, 3.2rem);
+    margin-top: 0;
+    margin-bottom: 2%;
     font-family: 'Cinzel', serif; /* Changed to Cinzel for elegance */
     font-weight: 400;
     letter-spacing: 0.15em;
@@ -85,9 +85,9 @@
   /* 6. TIME */
   .date-time {
     color: #e5c175;
-    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    font-size: clamp(1rem, 4vw, 1.6rem);
     margin-top: 0;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
     font-family: 'Cormorant Garamond', serif; /* Better paired elegance */
     font-style: italic;
     font-weight: 400;
@@ -98,9 +98,9 @@
   /* 7. VENUE LOCATION */
   .venue-location {
     color: #e5c175;
-    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
-    margin-top: 1%;
-    margin-bottom: 2%;
+    font-size: clamp(0.95rem, 3.5vw, 1.4rem);
+    margin-top: 0;
+    margin-bottom: 3%;
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
     letter-spacing: 0.1em;
@@ -110,9 +110,9 @@
   /* 8. DRESS CODE */
   .dress-code {
     color: #ffffff;
-    font-size: clamp(0.9rem, 3vw, 1.2rem);
-    margin-top: 3%;
-    margin-bottom: 0;
+    font-size: clamp(0.8rem, 3vw, 1.2rem);
+    margin-top: 0;
+    margin-bottom: 5%;
     font-family: 'Cormorant Garamond', serif;
     text-transform: uppercase;
     letter-spacing: 0.25em;
@@ -169,7 +169,7 @@
     transform: translateX(-50%);
     width: 74%;
     height: 44%;
-    background: url('https://drive.google.com/thumbnail?id=1qHZLgk5F7JBS3VxgFwmDdUEkFTMGE3nQ&sz=w2000') center/cover no-repeat;
+    background: url('https://drive.google.com/thumbnail?id=1WhQ5dpqn5Ylkxv6NE2gjpdmqbF54ckUC&sz=w2000') center/cover no-repeat;
     border: 1px solid rgba(180,148,90,0.35);
     border-radius: 2px;
     z-index: 1;
@@ -201,11 +201,13 @@
     max-width: calc(100dvh * (565 / 800));
     max-height: 100dvh;
     margin: auto; 
-    padding: 34% 8% 15% 8%; 
+    /* Increased top padding completely clears the wax seal stamp on ALL screens */
+    padding: 38% 8% 10% 8%; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly; 
+    /* Anchors layout from the top down instead of randomly distributing remaining space */
+    justify-content: flex-start; 
     text-align: center;
     position: relative;
     z-index: 10;
@@ -308,6 +310,8 @@
     background: linear-gradient(to right, transparent, #e5c175, transparent); 
     flex-shrink: 0; 
     transform-origin: center;
+    margin-top: 2%;
+    margin-bottom: 4%;
   }
   
   .sub-text.italic { font-style: italic; }
@@ -316,7 +320,7 @@
   .btn-row {
     display: flex;
     gap: 16px;
-    margin-top: 3%;
+    margin-top: 0;
     justify-content: center;
     flex-wrap: wrap;
     position: relative;
@@ -324,7 +328,7 @@
   }
   .btn {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(0.85rem, 2.2vw, 1rem);
+    font-size: clamp(0.75rem, 2.2vw, 1rem);
     letter-spacing: .15em;
     font-weight: 500;
     text-transform: uppercase;
@@ -357,7 +361,7 @@
     position: absolute;
     top: 24px; right: 28px;
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    font-size: clamp(0.75rem, 2vw, 0.95rem);
     font-weight: 500;
     letter-spacing: .15em;
     color: #e5c175;
