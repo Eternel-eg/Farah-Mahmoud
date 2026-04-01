@@ -13,7 +13,7 @@
   /* 1. INTRO & OUTRO TEXT */
   .sub-text {
     color: #e5c175;
-    font-size: clamp(0.96rem, 2.8vw, 1.12rem);
+    font-size: clamp(1rem, 3.5vw, 1.3rem);
     margin-top: 2%; 
     margin-bottom: 1%;
     font-family: 'Cormorant Garamond', serif;
@@ -26,7 +26,7 @@
   /* 2. MAIN NAMES */
   .main-names {
     color: #e5c175;
-    font-size: clamp(1.92rem, 5.6vw, 2.8rem);
+    font-size: clamp(2rem, 8vw, 3.5rem);
     margin-top: 2%;
     margin-bottom: 2%;
     gap: 1.5vh;
@@ -38,7 +38,6 @@
     font-weight: 400;
     line-height: 1;
     text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-    /* Letter spacing moved to spans for animation purposes */
   }
 
   .main-names span:not(.amp) {
@@ -61,10 +60,10 @@
   /* 4. DATE TEXT */
   .date-header {
     color: #e5c175;
-    font-size: clamp(0.92rem, 2.8vw, 1.16rem);
+    font-size: clamp(1.1rem, 4vw, 1.6rem);
     margin-top: 1%;
     margin-bottom: 0;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Cinzel', serif; /* Changed to Cinzel for elegance */
     text-transform: uppercase;
     letter-spacing: 0.25em;
     font-weight: 400;
@@ -74,10 +73,10 @@
   /* 5. YEAR */
   .date-year {
     color: #e5c175;
-    font-size: clamp(1.44rem, 4vw, 1.92rem);
+    font-size: clamp(2rem, 6vw, 3.2rem);
     margin-top: 2%;
     margin-bottom: 3%;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif; /* Changed to Cinzel for elegance */
     font-weight: 400;
     letter-spacing: 0.15em;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
@@ -86,20 +85,32 @@
   /* 6. TIME */
   .date-time {
     color: #e5c175;
-    font-size: clamp(0.96rem, 2.8vw, 1.12rem);
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
     margin-top: 0;
     margin-bottom: 2%;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Cormorant Garamond', serif; /* Better paired elegance */
     font-style: italic;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.05em;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
   }
 
-  /* 7. DRESS CODE */
+  /* 7. VENUE LOCATION */
+  .venue-location {
+    color: #e5c175;
+    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+    margin-top: 1%;
+    margin-bottom: 2%;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  }
+
+  /* 8. DRESS CODE */
   .dress-code {
-    color: #000000;
-    font-size: clamp(0.72rem, 2vw, 0.88rem);
+    color: #ffffff;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
     margin-top: 3%;
     margin-bottom: 0;
     font-family: 'Cormorant Garamond', serif;
@@ -238,18 +249,21 @@
   
   /* 7. Date Time */
   .card.full .card-inner > *:nth-child(7) { animation: luxuryReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 3.4s forwards; }
-  
-  /* 8. Rule (Line) */
-  .card.full .card-inner > *:nth-child(8) { animation: lineExpand 1.2s cubic-bezier(0.16, 1, 0.3, 1) 3.6s forwards; }
-  
-  /* 9. Dress Code */
-  .card.full .card-inner > *:nth-child(9) { animation: luxuryReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 3.8s forwards; }
-  
-  /* 10. Buttons */
-  .card.full .card-inner > *:nth-child(10){ animation: luxuryReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 4.0s forwards; }
 
-  /* 11. Close Button */
-  .card.full .close-btn { opacity: 1; pointer-events: all; transition: opacity 0.8s ease 4.6s; }
+  /* 8. Venue Location */
+  .card.full .card-inner > *:nth-child(8) { animation: luxuryReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 3.6s forwards; }
+  
+  /* 9. Rule (Line) */
+  .card.full .card-inner > *:nth-child(9) { animation: lineExpand 1.2s cubic-bezier(0.16, 1, 0.3, 1) 3.8s forwards; }
+  
+  /* 10. Dress Code */
+  .card.full .card-inner > *:nth-child(10) { animation: luxuryReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 4.0s forwards; }
+  
+  /* 11. Buttons */
+  .card.full .card-inner > *:nth-child(11){ animation: luxuryReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 4.2s forwards; }
+
+  /* 12. Close Button */
+  .card.full .close-btn { opacity: 1; pointer-events: all; transition: opacity 0.8s ease 4.8s; }
 
 
   /* ── Keyframes for Cinematic Motion ── */
@@ -393,7 +407,7 @@
   }
   @keyframes bob {
     0%,100% { transform: translateY(0); }
-    50%      { transform: translateY(-8px); }
+    50%     { transform: translateY(-8px); }
   }
 
   .hint {
@@ -583,15 +597,19 @@
       
       <div class="rule"></div>
       
-      <div class="date-header">Saturday, the Fourteenth of June</div>
+      <div class="date-header">FRIDAY, 12TH of June</div>
       
-      <div class="date-year">2025</div>
+      <div class="date-year">2026</div>
       
-      <div class="date-time italic">at Six O'Clock in the Evening</div>
+      <div class="date-time italic">at 7:00 PM</div>
+      
+      <!-- New Location Added Here -->
+      <div class="venue-location">Giza Palace Hotel - Palace Ballroom</div>
       
       <div class="rule"></div>
       
-      <div class="dress-code">Dress Code: Black Tie</div>
+      <!-- Dress Code Changed -->
+      <div class="dress-code">Dress Code: White</div>
 
       <div class="btn-row">
         <button class="btn" onclick="openModal('rsvp', event)">
@@ -608,12 +626,12 @@
 
   <!-- ENVELOPE BODY -->
   <div class="env-body">
-    <img src="https://drive.google.com/thumbnail?id=1WmAfwXpOWAPENmYfpdrZ3--G07TbV28L&sz=w2000" alt="Envelope">
+    <img src="https://drive.google.com/thumbnail?id=1OCMkJUtbUMcqNnhE_xcGbQIJoLiBz_8z&sz=w2000" alt="Envelope">
   </div>
 
   <!-- ENVELOPE FLAP -->
   <div class="env-flap" id="flap">
-    <img src="https://drive.google.com/thumbnail?id=1UgFGEkK-FaX-Q8yYXx82xVj_zgVNTRbA&sz=w2000" alt="Envelope Flap">
+    <img src="https://drive.google.com/thumbnail?id=1Rrp3ohEFBiJRV8lLHbl-37-Hod3sqwPH&sz=w2000" alt="Envelope Flap">
   </div>
 
 </div>
@@ -655,7 +673,7 @@
     <div class="modal-sub">Venue Details</div>
     <div class="modal-rule"></div>
     <div class="loc-address">
-      Giza Palace<br>
+      Giza Palace Hotel<br>
       Palace Ballroom
     </div>
     <div class="loc-map">
