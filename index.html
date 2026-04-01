@@ -205,9 +205,9 @@
 
   /*
    * Reference measurements from the background image (565 × 800 px native):
-   *   • Wax stamp bottom edge  ≈  y 168px  →  168/800 = 21%
-   *   • Bottom decorative trim ≈  y 720px  →  (800-720)/800 = 10%
-   *   • Left/right safe inset  ≈  x 46px   →  46/565 = 8%
+   * • Wax stamp bottom edge  ≈  y 168px  →  168/800 = 21%
+   * • Bottom decorative trim ≈  y 720px  →  (800-720)/800 = 10%
+   * • Left/right safe inset  ≈  x 46px   →  46/565 = 8%
    * Using position:absolute means top/left/right/bottom are % of the
    * container's HEIGHT and WIDTH respectively — exactly what we need.
    */
@@ -359,11 +359,15 @@
     justify-content: center;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
   }
-  .btn:hover, .btn:active { 
+  .btn:hover:not(:disabled), .btn:active:not(:disabled) { 
     background: rgba(229,193,117,0.3); 
     box-shadow: 0 4px 16px rgba(0,0,0,0.3); 
     color: #ffffff; 
     transform: translateY(-2px);
+  }
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
   .btn svg { width:16px; height:16px; flex-shrink:0; }
 
@@ -492,7 +496,8 @@
     border:none; padding:14px 28px; border-radius:1px; cursor:pointer; margin-top:4px;
     transition:background 0.2s; width:100%;
   }
-  .rsvp-submit:hover, .rsvp-submit:active { background:#b38f40; }
+  .rsvp-submit:hover:not(:disabled), .rsvp-submit:active:not(:disabled) { background:#b38f40; }
+  .rsvp-submit:disabled { opacity: 0.7; cursor: not-allowed; }
 
   .loc-address { font-style:italic; font-size: clamp(1rem,3vw,1.15rem); line-height:1.8; margin-bottom:16px; color:#6a5030; }
   .loc-map { width:100%; height:200px; border:1px solid rgba(180,148,90,0.3); border-radius:2px; margin-bottom:16px; overflow:hidden; }
@@ -627,7 +632,7 @@
         <div class="rule"></div>
         
         <!-- Dress Code Changed -->
-        <div class="dress-code">Dress Code: White</div>
+        <div class="dress-code">Dress Code: Black</div>
 
         <div class="btn-row">
           <button class="btn" onclick="openModal('rsvp', event)">
@@ -667,20 +672,20 @@
     <div class="modal-sub">Kindly reply by May 1st, 2025</div>
     <div class="modal-rule"></div>
     <div class="rsvp-form" id="rsvpForm">
-      <input type="text" placeholder="Your Full Name" id="rsvpName">
-      <select id="rsvpAttend">
+      <input type="text" placeholder="Your Full Name" id="rsvpName" required>
+      <select id="rsvpAttend" required>
         <option value="" disabled selected>Will you attend?</option>
         <option value="yes">Joyfully accepts</option>
         <option value="no">Regretfully declines</option>
       </select>
       <input type="number" placeholder="Number of guests" min="1" max="6" id="rsvpGuests">
       <input type="text" placeholder="Leave a message for the couple 💌" id="rsvpDiet">
-      <button class="rsvp-submit" onclick="submitRSVP()">Confirm Attendance</button>
+      <button class="rsvp-submit" id="submitBtn" onclick="submitRSVP()">Confirm Attendance</button>
     </div>
     <div class="rsvp-thanks" id="rsvpThanks">
       <div class="ty-icon">✦</div>
       <div class="ty-text">Thank You!</div>
-      <div class="ty-sub">We look forward to celebrating with you</div>
+      <div class="ty-sub">We have received your response</div>
     </div>
   </div>
 </div>
@@ -908,12 +913,51 @@
     });
   });
 
+  /* =========================================================
+     RSVP GOOGLE SHEETS SUBMISSION SCRIPT
+     ========================================================= */
   function submitRSVP() {
     const name = document.getElementById('rsvpName').value.trim();
     const attend = document.getElementById('rsvpAttend').value;
-    if (!name || !attend) { alert('Please fill in your name and attendance.'); return; }
-    document.getElementById('rsvpForm').style.display = 'none';
-    document.getElementById('rsvpThanks').classList.add('show');
+    const guests = document.getElementById('rsvpGuests').value;
+    const message = document.getElementById('rsvpDiet').value.trim();
+
+    if (!name || !attend) { 
+      alert('Please fill in your name and attendance.'); 
+      return; 
+    }
+
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.innerText = 'Sending...';
+    submitBtn.disabled = true;
+
+    // ✨ PASTE YOUR GOOGLE APPS SCRIPT URL HERE ✨
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwzG110oyCG5w--fMg6PGU1JLHVizQ4ijS0CaGBZ5NfAO6FysmulIyksS51I6TPwxMg/exec'; 
+
+    if (scriptURL === 'https://script.google.com/macros/s/AKfycbwzG110oyCG5w--fMg6PGU1JLHVizQ4ijS0CaGBZ5NfAO6FysmulIyksS51I6TPwxMg/exec') {
+      alert("Note: Please follow the setup instructions to replace https://script.google.com/macros/s/AKfycbwzG110oyCG5w--fMg6PGU1JLHVizQ4ijS0CaGBZ5NfAO6FysmulIyksS51I6TPwxMg/exec with your actual Google Script URL.");
+      submitBtn.innerText = 'Confirm Attendance';
+      submitBtn.disabled = false;
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('attend', attend);
+    formData.append('guests', guests);
+    formData.append('message', message);
+
+    fetch(scriptURL, { method: 'POST', body: formData })
+      .then(response => {
+        document.getElementById('rsvpForm').style.display = 'none';
+        document.getElementById('rsvpThanks').classList.add('show');
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        alert('There was a small error sending your RSVP. Please try again.');
+        submitBtn.innerText = 'Confirm Attendance';
+        submitBtn.disabled = false;
+      });
   }
 
   function spawnPetals() {
